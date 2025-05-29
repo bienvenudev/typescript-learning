@@ -6,7 +6,7 @@ import { showReviewTotal, populateUser } from "./utils.js";
 import { Permissions, LoyaltyUser } from "./enums.js";
 const propertyContainer = document.querySelector(".properties");
 const footer = document.querySelector(".footer");
-let isLoggedIn = true;
+let isLoggedIn;
 // Reviews
 const reviews = [
     {
@@ -82,7 +82,8 @@ const properties = [
 // Functions
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 populateUser(you.isReturning, you.firstName);
-let authorityStatus = isLoggedIn && you.permissions;
+let authorityStatus;
+isLoggedIn = false;
 function showDetails(authorityStatus, element, price) {
     if (authorityStatus) {
         const priceDisplay = document.createElement("div");
@@ -99,7 +100,7 @@ for (let i = 0; i < properties.length; i++) {
     image.setAttribute("src", properties[i].image);
     card.appendChild(image);
     propertyContainer.appendChild(card);
-    showDetails(authorityStatus, card, properties[i].price);
+    showDetails(you.permissions, card, properties[i].price);
 }
 let currentLocation = ["London", "11.03", 17];
 footer.innerHTML =
