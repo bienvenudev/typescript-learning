@@ -1,7 +1,8 @@
-// Union Types Challenge
-// 1. Fix the function to show the price per night for each property card only
-// if isLoggedIn is true, or the you object has Permissions. (all permissions should work)
-// 2. See what happens when a null object to be passed to the you objects permissions.
+// Literal Types
+// 1. Based on what we have learnt about literal types with the price, can you make
+// a Country literal type? You only have to include the countries we are dealing with in 
+// the project.
+// 2. Can you create a file and store all your types in there?
 import { showReviewTotal, populateUser } from "./utils.js";
 import { Permissions, LoyaltyUser } from "./enums.js";
 const propertyContainer = document.querySelector(".properties");
@@ -55,7 +56,7 @@ const properties = [
     {
         image: "images/poland-property.jpg",
         title: "Polish Cottage",
-        price: 34,
+        price: 25,
         location: {
             firstLine: "no 23",
             city: "Gdansk",
@@ -68,7 +69,7 @@ const properties = [
     {
         image: "images/london-property.jpg",
         title: "London Flat",
-        price: 23,
+        price: 30,
         location: {
             firstLine: "flat 15",
             city: "London",
