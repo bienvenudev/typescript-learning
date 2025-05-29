@@ -1,70 +1,48 @@
-// Tuples challenge
-// 1. Add an array to the variable of currentLocation I have added. This array
-// must have your current location, time, and degrees celcius of your location
-// NOTE: make sure to make this a Tuple, to only allow those types in that
-// structure.
-// 2. Add this visually to a footer on your site
+// Enum Types mini-challenge
+// Replace the value of loyaltyUser to a GOLD_USER, SILVER_USER or BRONZE_USER, making sure to
+// use what we learnt about Enums in the previous lesson. Make Sheia GOLD, Andrzej BRONZE
+// and Omar SILVER.
+// 2. export the enum
+// 3. Fix the function in the utils to show Sheias star as she is a GOLD_USER.
 
-const propertyContainer = document.querySelector(".properties");
-const footer = document.querySelector(".footer");
+import { showReviewTotal, populateUser } from "./utils.js";
+import { LoyaltyUser } from "./enums.js";
 
-import { showReviewTotal, populateUser } from "./utils";
-let isOpen: boolean;
+const propertyContainer = document.querySelector(
+  ".properties"
+) as HTMLDivElement;
+const footer = document.querySelector(".footer") as HTMLElement;
 
 // Reviews
 const reviews: {
   name: string;
   stars: number;
-  loyaltyUser: boolean;
+  loyaltyUser: LoyaltyUser;
   date: string;
 }[] = [
   {
     name: "Sheia",
     stars: 5,
-    loyaltyUser: true,
+    loyaltyUser: LoyaltyUser.GOLD_USER,
     date: "01-04-2021",
   },
   {
     name: "Andrzej",
     stars: 3,
-    loyaltyUser: false,
+    loyaltyUser: LoyaltyUser.BRONZE_USER,
     date: "28-03-2021",
   },
   {
     name: "Omar",
     stars: 4,
-    loyaltyUser: true,
+    loyaltyUser: LoyaltyUser.SILVER_USER,
     date: "27-03-2021",
   },
 ];
 
-// User
-// const you: {
-//     firstName: string;
-//     lastName: string;
-//     isReturning: boolean;
-//     age: number;
-//     stayedAt: string[]
-// } = {
-//     firstName: 'Bobby',
-//     lastName: 'Brown',
-//     isReturning: true,
-//     age: 35,
-//     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
-// }
-
-const ADMIN = "admin";
-const READ_ONLY = "read-only";
-
-enum Permissions {
-  ADMIN,
-  READ_ONLY,
-}
-
 const you = {
   firstName: "Bobby",
   lastName: "Brown",
-  permission: Permissions.ADMIN,
   isReturning: true,
   age: 35,
   stayedAt: ["florida-home", "oman-flat", "tokyo-bungalow"],
@@ -141,11 +119,11 @@ for (let i = 0; i < properties.length; i++) {
   propertyContainer.appendChild(card);
 }
 
-// use your location, your current time, and the current temperature of your
-// location
-let currentLocation: [string, string, number] = ["Kigali", "03:48 PM", 17];
+let currentLocation: [string, string, number] = ["Kigali", "17:30", 17];
 footer.innerHTML =
-  currentLocation
-    .map((location) => location + " ")
-    .join("")
-    .trim() + "°";
+  currentLocation[0] +
+  " " +
+  currentLocation[1] +
+  " " +
+  currentLocation[2] +
+  "°";
