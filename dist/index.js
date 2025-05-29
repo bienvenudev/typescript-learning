@@ -1,13 +1,13 @@
-// Enum Types mini-challenge
-// Replace the value of loyaltyUser to a GOLD_USER, SILVER_USER or BRONZE_USER, making sure to
-// use what we learnt about Enums in the previous lesson. Make Sheia GOLD, Andrzej BRONZE
-// and Omar SILVER.
-// 2. export the enum
-// 3. Fix the function in the utils to show Sheias star as she is a GOLD_USER.
+// Any Type
+// 1. Add a description property to Omars review, and give it a value.
+// 2. Next try addressing what TypeScript does not like.
+// 3. Now, imagine we DON'T know what kind of review object we are going to
+// get next.
 import { showReviewTotal, populateUser } from "./utils.js";
-import { LoyaltyUser } from "./enums.js";
+import { Permissions, LoyaltyUser } from "./enums.js";
 const propertyContainer = document.querySelector(".properties");
 const footer = document.querySelector(".footer");
+let isOpen;
 // Reviews
 const reviews = [
     {
@@ -26,12 +26,15 @@ const reviews = [
         name: "Omar",
         stars: 4,
         loyaltyUser: LoyaltyUser.SILVER_USER,
+        property: "House is smaller than promised!",
         date: "27-03-2021",
     },
 ];
+// User
 const you = {
     firstName: "Bobby",
     lastName: "Brown",
+    permissions: Permissions.ADMIN,
     isReturning: true,
     age: 35,
     stayedAt: ["florida-home", "oman-flat", "tokyo-bungalow"],
@@ -91,7 +94,7 @@ for (let i = 0; i < properties.length; i++) {
     card.appendChild(image);
     propertyContainer.appendChild(card);
 }
-let currentLocation = ["Kigali", "17:30", 17];
+let currentLocation = ["London", "11.03", 17];
 footer.innerHTML =
     currentLocation[0] +
         " " +

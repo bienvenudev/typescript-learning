@@ -1,6 +1,11 @@
+export var Permissions;
+(function (Permissions) {
+    Permissions["ADMIN"] = "ADMIN";
+    Permissions["READ_ONLY"] = "READ_ONLY";
+})(Permissions || (Permissions = {}));
 export var LoyaltyUser;
 (function (LoyaltyUser) {
-    LoyaltyUser["GOLD_USER"] = "Gold";
-    LoyaltyUser["BRONZE_USER"] = "Bronze";
-    LoyaltyUser["SILVER_USER"] = "Silver";
+    LoyaltyUser["GOLD_USER"] = "GOLD_USER";
+    LoyaltyUser["SILVER_USER"] = "SILVER_USER";
+    LoyaltyUser["BRONZE_USER"] = "BRONZE_USER";
 })(LoyaltyUser || (LoyaltyUser = {}));
