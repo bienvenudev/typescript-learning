@@ -5,7 +5,7 @@
 
 import { showReviewTotal, populateUser, showDetails, getTopTwoReviews} from './utils.js'
 import { Price, Country } from './types'
-import { Review } from './interfaces.js'
+import  Review  from './interfaces.js'
 
 const propertyContainer = document.querySelector('.properties')
 const reviewContainer = document.querySelector('.reviews')
