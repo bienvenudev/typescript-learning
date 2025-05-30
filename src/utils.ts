@@ -43,8 +43,14 @@ export function makeMultiple(value: number) : string {
 export function getTopTwoReviews(reviews : { 
     name: string; 
     stars: number;
+    loyaltyUser: LoyaltyUser;
      date: string; 
-     }[]) : any[]  {
+}[]): {
+     name: string; 
+    stars: number; 
+    loyaltyUser: LoyaltyUser; 
+    date: string; 
+}[]  {
  const sortedReviews = reviews.sort((a, b) => b.stars - a.stars)
  return sortedReviews.slice(0,2)
 }

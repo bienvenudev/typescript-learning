@@ -133,7 +133,12 @@ for (let i = 0; i < properties.length; i++) {
 
 //Broken code
 let count = 0
-function addReviews(array: any[]): void {
+function addReviews(array: {
+   name: string; 
+    stars: number; 
+    loyaltyUser: LoyaltyUser; 
+    date: string; 
+}[]): void {
     if (!count ) {
         count++
         const topTwo = getTopTwoReviews(array)
