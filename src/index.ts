@@ -1,10 +1,12 @@
-// Function Types challenge - Pass the code review
-// 1. Add types to the function that returns the top 2 reviews specifically based on
-// descending order. Make sure to use what you learned in the previous lessons.
-// 2. Add types to the function in this file that shows the reviews when we click the button
+// Interfaces
+// 1. Based on what we have learnt in this lesson, and what we discussed in the previous one,
+// please get rid of the uncessary code in this project and replace it with the Review interface
+// 2. Move the interface to its own file for the next lesson
 
 import { showReviewTotal, populateUser, showDetails, getTopTwoReviews} from './utils.js'
 import { Price, Country } from './types'
+import { Review } from './interfaces.js'
+
 const propertyContainer = document.querySelector('.properties')
 const reviewContainer = document.querySelector('.reviews')
 const container = document.querySelector('.container')
@@ -24,12 +26,7 @@ enum LoyaltyUser {
 }
 
 // Reviews
-const reviews: { 
-    name: string; 
-    stars: number; 
-    loyaltyUser: LoyaltyUser; 
-    date: string; 
-    }[] = [
+const reviews: Review[] = [
     {
         name: 'Sheia',
         stars: 5,
@@ -133,12 +130,7 @@ for (let i = 0; i < properties.length; i++) {
 
 //Broken code
 let count = 0
-function addReviews(array: {
-   name: string; 
-    stars: number; 
-    loyaltyUser: LoyaltyUser; 
-    date: string; 
-}[]): void {
+function addReviews(array: Review[]): void {
     if (!count ) {
         count++
         const topTwo = getTopTwoReviews(array)
