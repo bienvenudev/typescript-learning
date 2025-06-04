@@ -1,34 +1,22 @@
-// Interfaces
-// 1. Based on what we have learnt in this lesson, and what we discussed in the previous one,
-// please get rid of the uncessary code in this project and replace it with the Review interface
-// 2. Move the interface to its own file for the next lesson
-
-import { showReviewTotal, populateUser, showDetails, getTopTwoReviews} from './utils.js'
+// Wrapping up our Dashboard
+// 1. Create All the other interfaces you think are needed for this board
+// 2. Using the Class, visually show the main Image above the review button.
+import { showReviewTotal, populateUser, showDetails, getTopTwoReviews} from './utils'
 import { Price, Country } from './types'
-import  Review  from './interfaces.js'
-
+import { Permissions , LoyaltyUser } from './enums.js'
+import  Review  from './interfaces'
 const propertyContainer = document.querySelector('.properties')
 const reviewContainer = document.querySelector('.reviews')
 const container = document.querySelector('.container')
-const button = document.querySelector('button') as HTMLButtonElement
+const button = document.querySelector('button')
 const footer = document.querySelector('.footer')
 
 let isLoggedIn: boolean
 
-enum Permissions {
-    ADMIN = 'ADMIN', 
-    READ_ONLY = 'READ_ONLY'
-}
-enum LoyaltyUser {
-    GOLD_USER = 'GOLD_USER',
-    SILVER_USER = 'SILVER_USER',
-    BRONZE_USER = 'BRONZE_USER'
-}
-
 // Reviews
 const reviews: Review[] = [
     {
-        name: 'Sheia',
+        name: 'Sheila',
         stars: 5,
         loyaltyUser: LoyaltyUser.GOLD_USER,
         date: '01-04-2021'
@@ -128,9 +116,8 @@ for (let i = 0; i < properties.length; i++) {
     propertyContainer.appendChild(card)
 }
 
-//Broken code
 let count = 0
-function addReviews(array: Review[]): void {
+function addReviews(array : Review[]) : void {
     if (!count ) {
         count++
         const topTwo = getTopTwoReviews(array)
@@ -149,3 +136,21 @@ button.addEventListener('click', () => addReviews(reviews))
 let currentLocation : [string, string, number] = ['London', '11.03', 17]
 footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°'
 
+// Classes
+class MainProperty {
+    src: string
+    title: string
+    reviews: Review[]
+    constructor(src: string, title: string, reviews: Review[]) {
+        this.src = src
+        this.title = title
+        this.reviews = reviews
+    }
+}
+
+let yourMainProperty = new MainProperty()
+
+const mainImageContainer = document.querySelector('.main-image')
+const image = document.createElement('img')
+image.setAttribute('src', yourMainProperty.src)
+mainImageContainer.appendChild(image)

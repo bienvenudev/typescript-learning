@@ -1,4 +1,4 @@
-import { LoyaltyUser } from "./utils.js";
+import { LoyaltyUser } from "./enums.js";
 
 export default interface Review  {
  name: string; 
