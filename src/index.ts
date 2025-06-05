@@ -15,6 +15,7 @@ import {
 import { Price, Country } from "./types.js";
 import { Permissions, LoyaltyUser } from "./enums.js";
 import { Review, Properties } from "./interfaces.js";
+import MainProperty from "./classes.js";
 const propertyContainer = document.querySelector(".properties") as HTMLElement;
 const reviewContainer = document.querySelector(".reviews") as HTMLElement;
 const container = document.querySelector(".container") as HTMLElement;
@@ -96,13 +97,6 @@ const properties: Properties[] = [
     isAvailable: true,
   },
   {
-    // add another property card. The Property should have:
-    // 1 x picture of a 'Malaysian Hotel' called 'Malia Hotel'
-    // It should cost 35/night
-    // It's location should be 'Room 4, Malia , Malaysia, 45334'
-    // The contact email should be 'lee34@gmail.com'
-    // The phone number for the property should be +60349822083
-    // It should not be available
     image: "images/malaysian-property.jpg",
     title: "Malia Hotel",
     price: 35,
@@ -159,18 +153,6 @@ footer.innerHTML =
   " " +
   currentLocation[2] +
   "°";
-
-// Classes
-class MainProperty {
-  src: string;
-  title: string;
-  reviews: Review[];
-  constructor(src: string, title: string, reviews: Review[]) {
-    this.src = src;
-    this.title = title;
-    this.reviews = reviews;
-  }
-}
 
 let yourMainProperty = new MainProperty(
   "images/colombia-property.jpg",
